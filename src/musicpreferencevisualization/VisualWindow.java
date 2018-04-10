@@ -62,7 +62,7 @@ public class VisualWindow {
         window.addButton(genre, WindowSide.NORTH);
         window.addButton(next, WindowSide.NORTH);
         window.setSize(1000, 600);
-        makeGraph(5,25,program.getSongList().get(0));
+        makeGraph(40,70,program.getSongList().get(0));
         
     }
 
@@ -109,7 +109,8 @@ public class VisualWindow {
      * @return
      */
     private void makeGraph(int x, int y, Song song) {
-        Shape blackBar = new Shape(2, 50, Color.MAGENTA);
+        
+        Shape blackBar = new Shape(x,y,8, song.getHeard()[0]/song.getTotal()[0], Color.BLACK);
         window.addShape(blackBar);
     }
 }
