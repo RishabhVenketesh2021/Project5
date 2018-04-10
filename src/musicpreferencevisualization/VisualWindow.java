@@ -42,6 +42,7 @@ public class VisualWindow {
         program = new SorterBackEnd(songFilename, surveyFilename);
         program.sortSongs("Hobby", "Title");
         window = new Window();
+        window.setTitle("Project 5");
         Button hobby = new Button("Represent Hobby");
         Button major = new Button("Represent Major");
         Button region = new Button("Represent Region");
