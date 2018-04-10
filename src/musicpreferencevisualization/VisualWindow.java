@@ -75,24 +75,34 @@ public class VisualWindow {
             .getGraphPanelHeight() - 200 - 5, 135, 200, Color.WHITE);
         legend.setForegroundColor(Color.BLACK);
 
-        // makes the song title header
+        // makes/adds the song title header
         TextShape songTitle = new TextShape(window.getGraphPanelWidth() - 120,
             window.getGraphPanelHeight() - 105, "Song Title", Color.BLACK);
         songTitle.setBackgroundColor(Color.WHITE);
         window.addShape(songTitle);
 
+        // makes/adds the black vertical bar
         Shape blackBar = new Shape(window.getGraphPanelWidth() - 90, window
             .getGraphPanelHeight() - 87, 8, 60, Color.BLACK);
         window.addShape(blackBar);
 
+        // makes/adds the Hobbies and Liked to the legend
+        TextShape heardLiked = new TextShape(window.getGraphPanelWidth() - 130
+            - 11, window.getGraphPanelHeight() - 67, "Heard       Liked",
+            Color.BLACK);
+        heardLiked.setBackgroundColor(Color.WHITE);
+        window.addShape(heardLiked);
+
+        // initialize strings to be used in switch statement
         String legendName;
         String cat1Name; // category 1 name, defined in switch statement below
         String cat2Name;
         String cat3Name;
         String cat4Name;
 
+        // changes the legend based on the type needed
         switch (repType) {
-            case 'H':
+            case 'H': // H for Hobbies
                 legendName = "Hobby Legend";
                 cat1Name = "Read";
                 cat2Name = "Art";
@@ -100,7 +110,7 @@ public class VisualWindow {
                 cat4Name = "Music";
                 break;
 
-            case 'M':
+            case 'M': // M for Major
                 legendName = "Major Legend";
                 cat1Name = "Comp Sci";
                 cat2Name = "Other Eng";
@@ -108,8 +118,8 @@ public class VisualWindow {
                 cat4Name = "Other";
                 break;
 
-            case 'R':
-                legendName = "REgion Legend";
+            case 'R': // R for Region
+                legendName = "Region Legend";
                 cat1Name = "NE US";
                 cat2Name = "SE US";
                 cat3Name = "Other US";
@@ -124,22 +134,32 @@ public class VisualWindow {
                 cat4Name = "";
         }
 
+        // legend name
         TextShape keyName = new TextShape(window.getGraphPanelWidth() - 120
             - 16, window.getGraphPanelHeight() - 200, legendName, Color.BLACK);
         keyName.setBackgroundColor(Color.WHITE);
+
+        // first category
         TextShape cat1 = new TextShape(window.getGraphPanelWidth() - 130 - 16,
             window.getGraphPanelHeight() - 175, cat1Name, Color.MAGENTA);
         cat1.setBackgroundColor(Color.WHITE);
+
+        // second category
         TextShape cat2 = new TextShape(window.getGraphPanelWidth() - 130 - 16,
             window.getGraphPanelHeight() - 160, cat2Name, Color.BLUE);
         cat2.setBackgroundColor(Color.WHITE);
+
+        // third category
         TextShape cat3 = new TextShape(window.getGraphPanelWidth() - 130 - 16,
             window.getGraphPanelHeight() - 145, cat3Name, Color.ORANGE);
         cat3.setBackgroundColor(Color.WHITE);
+
+        // fourth category
         TextShape cat4 = new TextShape(window.getGraphPanelWidth() - 130 - 16,
             window.getGraphPanelHeight() - 130, cat4Name, Color.GREEN);
         cat4.setBackgroundColor(Color.WHITE);
 
+        // adding shapes to the window
         window.addShape(keyName);
         window.addShape(cat1);
         window.addShape(cat2);
