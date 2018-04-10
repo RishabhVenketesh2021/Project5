@@ -1,5 +1,7 @@
 package musicpreferencevisualization;
 
-public class MajorTest {
+import student.TestCase;
+
+public class MajorTest extends TestCase{
 
 }
