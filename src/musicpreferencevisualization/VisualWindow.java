@@ -4,6 +4,7 @@ import java.awt.Color;
 import CS2114.Window;
 import CS2114.Button;
 import CS2114.Shape;
+import CS2114.TextShape;
 import CS2114.WindowSide;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
@@ -61,42 +62,53 @@ public class VisualWindow {
         window.addButton(year, WindowSide.NORTH);
         window.addButton(genre, WindowSide.NORTH);
         window.addButton(next, WindowSide.NORTH);
-        window.setSize(1000, 600);
-        makeGraph(40,70,program.getSongList().get(0));
+        window.setSize(1200, 900);
+        addGraph(program.getSongList());
+        
+        
         
     }
 
 
-    public void addGraph(LinkedListSortable<Song> songList, int index2Start) {
+    public void addGraph(LinkedListSortable<Song> songList) {
         for (int i = 0; i < songList.size(); i++) {
-            if (i % 9 == 1) {
-
-            }
-            else if (i % 9 == 2) {
-
-            }
-            else if (i % 9 == 3) {
-
-            }
-            else if (i % 9 == 4) {
-
-            }
-            else if (i % 9 == 5) {
-
-            }
-            else if (i % 9 == 6) {
-
-            }
-            else if (i % 9 == 7) {
-
-            }
-            else if (i % 9 == 8) {
-
-            }
-            else if (i % 9 == 0) {
-
-            }
+//            if (i % 9 == 1) {
+//                makeGraph(12, 8, songList.get(i));
+//            }
+//            else if (i % 9 == 2) {
+//                makeGraph(300,8,songList.get(i));
+//            }
+//            else if (i % 9 == 3) {
+//                makeGraph(550,8,songList.get(i));
+//            }
+//            else if (i % 9 == 4) {
+//                makeGraph(12,160,songList.get(i));
+//            }
+//            else if (i % 9 == 5) {
+//
+//            }
+//            else if (i % 9 == 6) {
+//
+//            }
+//            else if (i % 9 == 7) {
+//                makeGraph(12,312,songList.get(0));
+//            }
+//            else if (i % 9 == 8) {
+//
+//            }
+//            else if (i % 9 == 0) {
+//
+//            }
         }
+        makeGraph(12, 8, songList.get(0));
+        makeGraph(300,8,songList.get(0));
+        makeGraph(570,8,songList.get(0));
+        makeGraph(12,160,songList.get(0));
+        makeGraph(300,160,songList.get(0));
+        makeGraph(570,160,songList.get(0));
+        makeGraph(12,312,songList.get(0));
+        makeGraph(300,312,songList.get(0));
+        makeGraph(570,312,songList.get(0));
     }
 
 
@@ -109,8 +121,25 @@ public class VisualWindow {
      * @return
      */
     private void makeGraph(int x, int y, Song song) {
+
+        TextShape line1 = new TextShape(x, y, song.getTitle());
+        line1.setBackgroundColor(Color.WHITE);
+        TextShape line2 = new TextShape(x+line1.getWidth()/4, y + 15, song.getName());
+        line2.setBackgroundColor(Color.WHITE);
+        Shape blackBar = new Shape(x+(line1.getWidth()/2)-8, y + 30, 8, 52, Color.BLACK);
+        Shape magBar = new Shape(x, y + 30, line1.getWidth(), 13, Color.MAGENTA);
+        Shape bluBar = new Shape(x,y+43,line1.getWidth(),13,Color.BLUE);
+        Shape oraBar = new Shape(x,y+56,line1.getWidth(),13,Color.ORANGE);
+        Shape greBar = new Shape(x,y+69,line1.getWidth(),13,Color.GREEN);
         
-        Shape blackBar = new Shape(x,y,8, 50, Color.BLACK);
+        
         window.addShape(blackBar);
+        window.addShape(magBar);
+        window.addShape(bluBar);
+        window.addShape(oraBar);
+        window.addShape(greBar);
+        window.addShape(line1);
+        window.addShape(line2);
+
     }
 }
