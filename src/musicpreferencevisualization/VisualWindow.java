@@ -62,7 +62,7 @@ public class VisualWindow {
         window.addButton(year, WindowSide.NORTH);
         window.addButton(genre, WindowSide.NORTH);
         window.addButton(next, WindowSide.NORTH);
-        window.setSize(1200, 900);
+        window.setSize(1000, 520);
         addGraph(program.getSongList());
         
         
@@ -72,43 +72,36 @@ public class VisualWindow {
 
     public void addGraph(LinkedListSortable<Song> songList) {
         for (int i = 0; i < songList.size(); i++) {
-//            if (i % 9 == 1) {
-//                makeGraph(12, 8, songList.get(i));
-//            }
-//            else if (i % 9 == 2) {
-//                makeGraph(300,8,songList.get(i));
-//            }
-//            else if (i % 9 == 3) {
-//                makeGraph(550,8,songList.get(i));
-//            }
-//            else if (i % 9 == 4) {
-//                makeGraph(12,160,songList.get(i));
-//            }
-//            else if (i % 9 == 5) {
-//
-//            }
-//            else if (i % 9 == 6) {
-//
-//            }
-//            else if (i % 9 == 7) {
-//                makeGraph(12,312,songList.get(0));
-//            }
-//            else if (i % 9 == 8) {
-//
-//            }
-//            else if (i % 9 == 0) {
-//
-//            }
-        }
-        makeGraph(12, 8, songList.get(0));
-        makeGraph(300,8,songList.get(0));
-        makeGraph(570,8,songList.get(0));
-        makeGraph(12,160,songList.get(0));
-        makeGraph(300,160,songList.get(0));
-        makeGraph(570,160,songList.get(0));
-        makeGraph(12,312,songList.get(0));
-        makeGraph(300,312,songList.get(0));
-        makeGraph(570,312,songList.get(0));
+            if ((i+1) % 9 == 1) {
+                makeGraph(12, 8, songList.get(i));
+            }
+            else if ((i+1) % 9 == 2) {
+                makeGraph(300,8,songList.get(i));
+            }
+            else if ((i+1) % 9 == 3) {
+                makeGraph(550,8,songList.get(i));
+            }
+            else if ((i +1) % 9 == 4) {
+                makeGraph(12,160,songList.get(i));
+            }
+            else if ((i+1 )% 9 == 5) {
+                makeGraph(300,160,songList.get(i));
+            }
+            else if ((i+1) % 9 == 6) {
+                makeGraph(570,160,songList.get(i));
+            }
+            else if ((i+1) % 9 == 7) {
+                makeGraph(12,312,songList.get(i));
+            }
+            else if ((i+1) % 9 == 8) {
+                makeGraph(300,312,songList.get(i));
+            }
+            else if ((i+1) % 9 == 0) {
+                makeGraph(570,312,songList.get(i));
+            }
+        }      
+        
+        
     }
 
 
