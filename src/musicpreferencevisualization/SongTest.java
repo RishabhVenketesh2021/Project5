@@ -23,12 +23,18 @@ public class SongTest extends TestCase {
 
 
     // ~~~~~~~~~~ SetUp ~~~~~~~~~~~
+    /**
+     * Set up for ever test 
+     */
     public void setUp() {
         ah = new Song("John Denver", "Country Roads", "Country", 1971, 10);
     }
 
 
     // ~~~~~~~~~~~~~~~~ TestCases ~~~~~~~~~~~~~~~
+    /**
+     * Test the getter methods in the song class
+     */
     public void testGetterMethods() {
         assertEquals("John Denver", ah.getName());
         assertEquals("Country Roads", ah.getTitle());
