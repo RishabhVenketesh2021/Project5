@@ -2,15 +2,22 @@ package musicpreferencevisualization;
 
 import java.io.*;
 
+/**
+ * 
+ * @author Jonathan
+ * @version 1.0
+ *
+ */
 @SuppressWarnings("unused")
 public class SorterBackEnd {
+    // ~~~~~~~~~~~~~~~~~~~~~ Fields ~~~~~~~~~~~~~~~~~~~~
     private Hobby hobby;
     private Major major;
     private Region region;
     private DataCollector dataCollector;
     private LinkedListSortable<Song> songList;
 
-
+    // ~~~~~~~~~~~~~~ Constructor ~~~~~~~~~~~~~~~~~~~~~~~~~~
     public SorterBackEnd(String songFilename, String surveyFilename) {
         dataCollector = new DataCollector(songFilename,
             surveyFilename);
@@ -22,6 +29,7 @@ public class SorterBackEnd {
     }
 
 
+    // ~~~~~~~~~~~~~~~~~~ Methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void sortSongs(String representation, String sortType) {
         dataCollector.fillSongs(representation);
         songList = dataCollector.getSongList();

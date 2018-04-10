@@ -6,9 +6,15 @@ import CS2114.Button;
 import CS2114.Shape;
 import CS2114.WindowSide;
 
+/**
+ * 
+ * @author Jerin
+ * @version 1.0
+ *
+ */
 public class WindowMaker {
 
-    
+    // Fields ~~~~~~~~~~~~~~~~~~~~~~
     private Window window;
     private Shape shape;
     private Button prev;
@@ -20,6 +26,13 @@ public class WindowMaker {
     private Button repHobby;
     private Button repMajor;
     private Button repRegion;
+    
+    // Constructor ~~~~~~~~~~~~~~~~~~
+    
+    
+    
+    // Methods ~~~~~~~~~~~~~~~
+    
     
     
 }
