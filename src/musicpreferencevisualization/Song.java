@@ -137,9 +137,9 @@ public class Song {
 
 
     /**
-     * Getter method to return the amount of times the song has been heard
+     * Getter method to return the amount of times the song has been heard by major
      * 
-     * @return heard - is an int -
+     * @return heard - is an int - 
      */
     public int[] getHeard() {
         return heard;
@@ -147,9 +147,9 @@ public class Song {
 
 
     /**
-     * Getter method to return the amount of times the song has been liked.
+     * Getter method to return the amount of times the song has been liked by major.
      * 
-     * @return
+     * @return liked - is an int - likes for the song by major
      */
     public int[] getLiked() {
         return liked;
@@ -160,7 +160,7 @@ public class Song {
      * Getter method to returns the grand total for each major. Used to find
      * percentage
      * 
-     * @return total - is an int - 
+     * @return total - is an int - grand total of people in the major 
      */
     public int[] getTotal() {
         return total;
