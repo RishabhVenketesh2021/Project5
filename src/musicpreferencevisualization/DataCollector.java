@@ -44,11 +44,19 @@ public class DataCollector {
             temp = surveyInputStream.nextLine();
             while (surveyInputStream.hasNextLine()) {
                 temp = surveyInputStream.nextLine();
-                String[] holder = temp.split(",",-1);
-                String[] personParams = new String[numSongs*2+5];
-                for(int k = 0; k < holder.length; k++) {
-                    personParams[k] = holder[k];
-                }
+//                String[] personParams = splitCommas(temp, numSongs*2+5);
+                String[] personParams = temp.split(",", -1);
+//                String[] personParams = new String[numSongs*2+5];
+//                for(int k = 0; k < personParams.length; k++) {
+//                    if (k<holder.length) {
+//                        personParams[k] = holder[k];
+//                    }
+//                    else {
+//                        personParams[k] = "";
+//                    }
+//                    
+//                }
+                
                 int[] answers = new int[2*numSongs];
                 for (int i = 5; i < personParams.length; i++) {
                     if (personParams[i].equals("Yes")) {
@@ -70,7 +78,6 @@ public class DataCollector {
                         personParams[3]), answers);
                 personList.add(newPerson);
                 numPeople++;
-                System.out.println("done");
             }            
         }
         catch (FileNotFoundException e) {
@@ -79,6 +86,20 @@ public class DataCollector {
     }
 
 
+//    private String[] splitCommas(String input, int sizeArray) {
+//        int beg = 0;
+//        int end = 0;int count = 0;
+//        String[] retArray = new String[sizeArray];
+//        for(int i = 0; i<input.length(); i++) {
+//            if(input.charAt(i)==',') {
+//                end = i-1;
+//                retArray[count] = input.substring(beg, end+1);
+//                count++;
+//                beg = i+1;
+//            }
+//        }
+//        return null;
+//    }
     private void fillHobby() {
         for (int i = 0; i < numPeople; i++) {
             Hobby.update(personList.get(i));

@@ -331,7 +331,7 @@ public class LinkedListSortable<E> implements LList<E> {
             tempCurr.setNext(current);
         }
     }
-
+//test comment
 
     @SuppressWarnings("resource")
     public void output(String representation) {
@@ -350,20 +350,32 @@ public class LinkedListSortable<E> implements LList<E> {
 
                 int[] heard = tempSong.getHeard();
                 int[] liked = tempSong.getLiked();
+                
+                
+                
+                System.out.println();
+                
                 pWriter.println("Heard");
                 if (representation == "Hobby") {
-                    pWriter.println("reading:" + heard[0] + " art:" + heard[1]
-                        + " sports:" + heard[2] + " music:" + heard[3]);
+                    int[] total = Hobby.total;
+                    int[] remove = Hobby.remove[tempSong.getIndex()];
+                    for (int i = 0; i < remove.length; i++) {
+                        total[i]-=remove[i];
+                    }
+                    pWriter.println("reading:" + tempSong.percentage(heard[0], total[0]) + " art:" + tempSong.percentage(heard[1], total[1])
+                        + " sports:" + tempSong.percentage(heard[2], total[2]) + " music:" + tempSong.percentage(heard[3], total[3]));
                 }
                 else if (representation == "Major") {
-                    pWriter.println("computer science:" + heard[0]
-                        + " engineering:" + heard[1] + " math or CMDA:"
-                        + heard[2] + " other:" + heard[3]);
+                    int[] total = Major.total;
+                    pWriter.println("computer science:" + tempSong.percentage(heard[0], total[0])
+                        + " engineering:" + tempSong.percentage(heard[1], total[1]) + " math or CMDA:"
+                        + tempSong.percentage(heard[2], total[2]) + " other:" + tempSong.percentage(heard[3], total[3]));
                 }
                 else if (representation == "Region") {
-                    pWriter.println("southwest:" + heard[0] + " southeast:"
-                        + heard[1] + " nortwest:" + heard[2] + " northeast:"
-                        + heard[3]);
+                    int[] total = Region.total;
+                    pWriter.println("southwest:" + tempSong.percentage(heard[0], total[0]) + " southeast:"
+                        + tempSong.percentage(heard[1], total[1]) + " nortwest:" + tempSong.percentage(heard[2], total[2]) + " northeast:"
+                        + tempSong.percentage(heard[3], total[3]));
                 }
                 else {
                     throw new IllegalArgumentException(
@@ -371,18 +383,21 @@ public class LinkedListSortable<E> implements LList<E> {
                 }
                 pWriter.println("Liked");
                 if (representation == "Hobby") {
-                    pWriter.println("reading:" + liked[0] + " art:" + liked[1]
-                        + " sports:" + liked[2] + " music:" + liked[3]);
+                    int[] total = Hobby.total;
+                    pWriter.println("reading:" + tempSong.percentage(liked[0], total[0]) + " art:" + tempSong.percentage(liked[1], total[1])
+                        + " sports:" + tempSong.percentage(liked[2], total[2]) + " music:" + tempSong.percentage(liked[3], total[3]));
                 }
                 else if (representation == "Major") {
-                    pWriter.println("computer science:" + liked[0]
-                        + " engineering:" + liked[1] + " math or CMDA:"
-                        + liked[2] + " other:" + liked[3]);
+                    int[] total = Major.total;
+                    pWriter.println("computer science:" + tempSong.percentage(liked[0], total[0])
+                        + " engineering:" + tempSong.percentage(liked[1], total[1]) + " math or CMDA:"
+                        + tempSong.percentage(liked[2], total[2]) + " other:" + tempSong.percentage(liked[3], total[3]));
                 }
                 else if (representation == "Region") {
-                    pWriter.println("southwest:" + liked[0] + " southeast:"
-                        + liked[1] + " nortwest:" + liked[2] + " northeast:"
-                        + liked[3]);
+                    int[] total = Region.total;
+                    pWriter.println("southwest:" + tempSong.percentage(liked[0], total[0]) + " southeast:"
+                        + tempSong.percentage(liked[1], total[1]) + " nortwest:" + tempSong.percentage(liked[2], total[2]) + " northeast:"
+                        + tempSong.percentage(liked[3], total[3]));
                 }
                 else {
                     throw new IllegalArgumentException(

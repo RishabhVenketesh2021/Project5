@@ -15,16 +15,20 @@ public class Region {
 
 
     public static void update(Person p) {
-        if(p.getRegionIndex()!=-1) {
-            if(p.hasAnswered()) {
-                total[p.getRegionIndex()] = total[p.getRegionIndex()] + 1;
-            }
+        if (p.getRegionIndex() != -1) {
+
+            total[p.getRegionIndex()] = total[p.getRegionIndex()] + 1;
+
             for (int i = 0; i < heard.length; i++) {
-                if (p.hasHeard(i)) {
-                    heard[i][p.getRegionIndex()] = heard[i][p.getRegionIndex()] + 1;
-                }
-                if (p.hasLiked(i)) {
-                    liked[i][p.getRegionIndex()] = liked[i][p.getRegionIndex()] + 1;
+                if (p.hasAnswered(i)) {
+                    if (p.hasHeard(i)) {
+                        heard[i][p.getRegionIndex()] = heard[i][p
+                            .getRegionIndex()] + 1;
+                    }
+                    if (p.hasLiked(i)) {
+                        liked[i][p.getRegionIndex()] = liked[i][p
+                            .getRegionIndex()] + 1;
+                    }
                 }
             }
         }
@@ -38,7 +42,8 @@ public class Region {
         else if (category.equals("Southeast")) {
             return 1;
         }
-        else if (category.equals("United States (other than Southeast or Northwest)")) {
+        else if (category.equals(
+            "United States (other than Southeast or Northwest)")) {
             return 2;
         }
         else if (category.equals("Outside of United States")) {

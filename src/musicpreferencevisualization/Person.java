@@ -39,13 +39,8 @@ public class Person {
     }
 
     
-    public boolean hasAnswered() {
-        for(int i = 0; i < answers.length; i++) {
-            if (answers[i]==-1) {
-                return false;
-            }
-        }
-        return true;
+    public boolean hasAnswered(int i) {
+        return answers[2 * (i)] != -1 && answers[2 * (i) + 1] != -1;
     }
 
     public boolean hasLiked(int i) { 

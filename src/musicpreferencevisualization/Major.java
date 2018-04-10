@@ -16,17 +16,17 @@ public class Major {
 
     public static void update(Person p) {
         if (p.getMajorIndex() != -1) {
-            if (p.hasAnswered()) {
-                total[p.getMajorIndex()] = total[p.getMajorIndex()] + 1;
-            }
+            total[p.getMajorIndex()] = total[p.getMajorIndex()] + 1;
             for (int i = 0; i < heard.length; i++) {
-                if (p.hasHeard(i)) {
-                    heard[i][p.getMajorIndex()] = heard[i][p.getMajorIndex()]
-                        + 1;
-                }
-                if (p.hasLiked(i)) {
-                    liked[i][p.getMajorIndex()] = liked[i][p.getMajorIndex()]
-                        + 1;
+                if (p.hasAnswered(i)) {
+                    if (p.hasHeard(i)) {
+                        heard[i][p.getMajorIndex()] = heard[i][p
+                            .getMajorIndex()] + 1;
+                    }
+                    if (p.hasLiked(i)) {
+                        liked[i][p.getMajorIndex()] = liked[i][p
+                            .getMajorIndex()] + 1;
+                    }
                 }
             }
         }
