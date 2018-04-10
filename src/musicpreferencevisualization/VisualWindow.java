@@ -5,9 +5,12 @@ import CS2114.Window;
 import CS2114.Button;
 import CS2114.Shape;
 import CS2114.WindowSide;
+import java.awt.Rectangle;
+import java.awt.geom.Rectangle2D;
 
 /**
  * This Class will create the window and the graphs within the window.
+ * 
  * @author Jerin M (jerinm)
  * @version 1.0
  *
@@ -18,24 +21,25 @@ public class VisualWindow {
      * the backend sorter class
      */
     private SorterBackEnd program;
-    
+
     /**
      * window eveything is displayed in
      */
     private Window window;
-    
+
+
     /**
      * creates main window and calls the backend as needed
+     * 
      * @param songFilename
-     *          song csv filename is needed
+     *            song csv filename is needed
      * @param surveyFilename
-     *          survey data csv is needed. 
+     *            survey data csv is needed.
      */
-    
 
     VisualWindow(String songFilename, String surveyFilename) {
-       // program = new SorterBackEnd(songFilename, surveyFilename);
-       // program.sortSongs("Hobby", "Title");
+        program = new SorterBackEnd(songFilename, surveyFilename);
+        program.sortSongs("Hobby", "Title");
         window = new Window();
         Button hobby = new Button("Represent Hobby");
         Button major = new Button("Represent Major");
@@ -58,61 +62,54 @@ public class VisualWindow {
         window.addButton(genre, WindowSide.NORTH);
         window.addButton(next, WindowSide.NORTH);
         window.setSize(1000, 600);
+        makeGraph(5,25,program.getSongList().get(0));
         
     }
 
 
     public void addGraph(LinkedListSortable<Song> songList, int index2Start) {
         for (int i = 0; i < songList.size(); i++) {
-            if(i%9 == 1)
-            {
-                
+            if (i % 9 == 1) {
+
             }
-            else if(i%9 == 2)
-            {
-                
+            else if (i % 9 == 2) {
+
             }
-            else if(i%9 == 3)
-            {
-                
+            else if (i % 9 == 3) {
+
             }
-            else if(i%9 == 4)
-            {
-                
+            else if (i % 9 == 4) {
+
             }
-            else if(i%9 == 5)
-            {
-                
+            else if (i % 9 == 5) {
+
             }
-            else if(i%9 == 6)
-            {
-                
+            else if (i % 9 == 6) {
+
             }
-            else if(i%9 == 7)
-            {
-                
+            else if (i % 9 == 7) {
+
             }
-            else if(i%9 == 8)
-            {
-                
+            else if (i % 9 == 8) {
+
             }
-            else if(i%9 == 0)
-            {
-                
+            else if (i % 9 == 0) {
+
             }
         }
     }
-    
+
+
     /**
-     * makes the graphs per each song and displays them in the propper spot. 
+     * makes the graphs per each song and displays them in the proper spot.
      * 
      * @param xposition
-     *      
+     * 
      * @param yposition
      * @return
      */
-    private void makeGraph(int xposition, int yposition, Song song)
-    {
-        Shape blackRect = new Shape()
+    private void makeGraph(int x, int y, Song song) {
+        Shape blackBar = new Shape(2, 50, Color.MAGENTA);
+        window.addShape(blackBar);
     }
 }

@@ -44,7 +44,7 @@ public class DataCollector {
             temp = surveyInputStream.nextLine();
             while (surveyInputStream.hasNextLine()) {
                 temp = surveyInputStream.nextLine();
-                String[] holder = temp.split(",");
+                String[] holder = temp.split(",",-1);
                 String[] personParams = new String[numSongs*2+5];
                 for(int k = 0; k < holder.length; k++) {
                     personParams[k] = holder[k];
