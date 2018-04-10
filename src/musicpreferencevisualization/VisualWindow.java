@@ -110,7 +110,7 @@ public class VisualWindow {
      */
     private void makeGraph(int x, int y, Song song) {
         
-        Shape blackBar = new Shape(x,y,8, song.getHeard()[0]/song.getTotal()[0], Color.BLACK);
+        Shape blackBar = new Shape(x,y,8, 50, Color.BLACK);
         window.addShape(blackBar);
     }
 }
