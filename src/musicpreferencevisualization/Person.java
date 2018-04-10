@@ -34,13 +34,21 @@ public class Person {
     }
 
 
-    public boolean hasHeard(int i) { // 1-->0, 2-->2, 3-->4 ...
-        return answers[2 * (i - 1)] == 1;
+    public boolean hasHeard(int i) { 
+        return answers[2 * (i)] == 1;
     }
 
-
-    public boolean hasLiked(int i) { // 1-->1, 2-->3, 3-->5 ...
-        return answers[2 * (i - 1) + 1] == 1;
+    
+    public boolean hasAnswered() {
+        for(int i = 0; i < answers.length; i++) {
+            if (answers[i]==-1) {
+                return false;
+            }
+        }
+        return true;
     }
 
+    public boolean hasLiked(int i) { 
+        return answers[2 * (i) + 1] == 1;
+    }
 }

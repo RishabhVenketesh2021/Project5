@@ -1,18 +1,19 @@
 package musicpreferencevisualization;
 
-import java.util.LinkedList;
+import java.io.*;
+
 @SuppressWarnings("unused")
 public class SorterBackEnd {
     private Hobby hobby;
     private Major major;
     private Region region;
     private DataCollector dataCollector;
-    private LinkedList<Song> songList;
+    private LinkedListSortable<Song> songList;
 
 
-    public SorterBackEnd() {
-        dataCollector = new DataCollector("SongListTest1",
-            "MusicSurveyDataTest1.csv");
+    public SorterBackEnd(String songFilename, String surveyFilename) {
+        dataCollector = new DataCollector(songFilename,
+            surveyFilename);
         dataCollector.createPeople();
         int[][] songArray = new int[dataCollector.getNumSongs()][4];
         hobby = new Hobby(songArray);
@@ -21,15 +22,21 @@ public class SorterBackEnd {
     }
 
 
-    public void sortSongs(String representation) {
+    public void sortSongs(String representation, String sortType) {
         dataCollector.fillSongs(representation);
+        songList = dataCollector.getSongList();
+        songList.sort(sortType);
+        output(representation);
     }
 
-    public void output() {
-        //format text file output
+
+    public void output(String representation) {
+        songList.output(representation);
     }
 
-    public LinkedList<Song> getSongList() {
+
+    public LinkedListSortable<Song> getSongList() {
         return songList;
     }
+    
 }

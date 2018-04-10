@@ -2,14 +2,13 @@ package musicpreferencevisualization;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 public class DataCollector {
     private String musicInputFilename;
     private String surveyInputFilename;
-    private LinkedList<Song> songList;
-    private LinkedList<Person> personList;
+    private LinkedListSortable<Song> songList;
+    private LinkedListSortable<Person> personList;
     private int numSongs;
     private int numPeople;
 
@@ -24,8 +23,8 @@ public class DataCollector {
     public void createPeople() {
         File musicInputFile = new File(musicInputFilename);
         File surveyInputFile = new File(surveyInputFilename);
-        songList = new LinkedList<Song>();
-        personList = new LinkedList<Person>();
+        songList = new LinkedListSortable<Song>();
+        personList = new LinkedListSortable<Person>();
         try {
             Scanner musicInputStream = new Scanner(musicInputFile);
             Scanner surveyInputStream = new Scanner(surveyInputFile);
@@ -38,30 +37,41 @@ public class DataCollector {
                     songParams[3], Integer.parseInt(songParams[2]), index);
                 index++;
                 songList.add(newSong);
+                
                 numSongs++;
+                
             }
             temp = surveyInputStream.nextLine();
             while (surveyInputStream.hasNextLine()) {
                 temp = surveyInputStream.nextLine();
-                String[] personParams = temp.split(",");
-                int[] answers = new int[personParams.length - 5];
+                String[] holder = temp.split(",");
+                String[] personParams = new String[numSongs*2+5];
+                for(int k = 0; k < holder.length; k++) {
+                    personParams[k] = holder[k];
+                }
+                int[] answers = new int[2*numSongs];
                 for (int i = 5; i < personParams.length; i++) {
                     if (personParams[i].equals("Yes")) {
-                        answers[i] = 1;
+                        answers[i-5] = 1;
                     }
                     else if (personParams[i].equals("No")) {
-                        answers[i] = 0;
+                        answers[i-5] = 0;
+                    }
+                    else if(personParams[i].equals("")) {
+                        answers[i-5] = -1;
                     }
                     else {
                         throw new IllegalArgumentException("Invalid entry");
                     }
                 }
+                
                 Person newPerson = new Person(Hobby.getIndex(personParams[4]),
                     Major.getIndex(personParams[2]), Region.getIndex(
                         personParams[3]), answers);
                 personList.add(newPerson);
                 numPeople++;
-            }
+                System.out.println("done");
+            }            
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -70,7 +80,7 @@ public class DataCollector {
 
 
     private void fillHobby() {
-        for (int i = 0; i < personList.size(); i++) {
+        for (int i = 0; i < numPeople; i++) {
             Hobby.update(personList.get(i));
         }
     }
@@ -84,6 +94,7 @@ public class DataCollector {
 
 
     private void fillRegion() {
+        
         for (int i = 0; i < personList.size(); i++) {
             Region.update(personList.get(i));
         }
@@ -95,19 +106,17 @@ public class DataCollector {
         fillMajor();
         fillRegion();
         for (int i = 0; i < songList.size(); i++) {
-            Song temp = songList.get(i);
-            temp.setHeardAndLike(representation);
-            songList.set(i, temp);
+            songList.get(i).setHeardAndLike(representation);
         }
     }
 
 
-    public LinkedList<Song> getSongList() {
+    public LinkedListSortable<Song> getSongList() {
         return songList;
     }
 
 
-    public LinkedList<Person> getPersonList() {
+    public LinkedListSortable<Person> getPersonList() {
         return personList;
     }
 
