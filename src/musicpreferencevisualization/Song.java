@@ -109,7 +109,8 @@ public class Song {
 
 
     /**
-     * 
+     * Sets heard, like, and the total based on what category we are sorting by.
+     * The options are major, hobby, and region.
      * 
      * @param representation
      */
@@ -137,9 +138,9 @@ public class Song {
 
 
     /**
-     * Getter method to return the amount of times the song has been heard by major
+     * Getter method to return the amount of times the song has been heard
      * 
-     * @return heard - is an int - 
+     * @return heard - is an int - amount of people who've heard the song
      */
     public int[] getHeard() {
         return heard;
@@ -147,7 +148,7 @@ public class Song {
 
 
     /**
-     * Getter method to return the amount of times the song has been liked by major.
+     * Getter method to return the amount of times the song has been liked
      * 
      * @return liked - is an int - likes for the song by major
      */
@@ -157,10 +158,11 @@ public class Song {
 
 
     /**
-     * Getter method to returns the grand total for each major. Used to find
+     * Getter method to returns the grand total for each sorting variable. Used
+     * to find
      * percentage
      * 
-     * @return total - is an int - grand total of people in the major 
+     * @return total - is an int - grand total of people in the major
      */
     public int[] getTotal() {
         return total;
